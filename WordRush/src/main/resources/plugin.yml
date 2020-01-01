@@ -1,10 +1,10 @@
 name: WordRush
-main: io.github.InstaTrapCorp.wordrush.wordrush.java
+main: io.github.InstaTrapCorp.wordrush.WordRush
 version: 1.0
 author: InstaTrapCorp
 commands:
-   basic:
-      description: This is a demo command.
-      usage: /basic [player]
-      permission: wordrush.basic
-      permission-message: You don't have wordrush.basic
+   lightup:
+      description: Set people on fire
+      usage: /lightup [player]
+      permission: wordrush.lightup
+      permission-message: You don't have wordrush.lightup

@@ -1,12 +1,10 @@
 package io.github.InstaTrapCorp.wordrush;
 
-import org.bukkit.Material;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 
 public class WordRushPluginExecutor implements CommandExecutor {
 	private final WordRush plugin;
@@ -16,54 +14,34 @@ public class WordRushPluginExecutor implements CommandExecutor {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (args.length > 4) {
-			sender.sendMessage("Too many arguments!");
-			return false;
-		} 
-		if (args.length < 2) {
-			sender.sendMessage("Not enough arguments!");
-			return false;
-		}
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
-			PlayerInventory inventory = player.getInventory(); // The player's inventory
-			ItemStack itemstack = new ItemStack(Material.DIAMOND, 64); // A stack of diamonds
-
-			if (inventory.contains(itemstack)) {
-				inventory.addItem(itemstack); // Adds a stack of diamonds to the player's inventory
-				player.sendMessage("Welcome! You seem to be reeeally rich, so we gave you some more diamonds!");
+		// Uses equalsIgnoreCase() over equals() to accept "ignite" and "IgNiTe."
+		if (cmd.getName().equalsIgnoreCase("ignite")) {
+			// Make sure that the player specified exactly one argument (the name of the player to ignite).
+			if (args.length != 1) {
+				// When onCommand() returns false, the help message associated with that command is displayed.
+				return false;
 			}
-		} else {
-			sender.sendMessage("You must be a player!");
-			return false;
-		}
-		if (cmd.getName().equalsIgnoreCase("basic")) { // If the player typed /basic then do the following...
-			Player player = (Player) sender;
-			PlayerInventory inventory = player.getInventory(); // The player's inventory
-			ItemStack itemstack = new ItemStack(Material.DIAMOND, 64); // A stack of diamonds
 
-			if (inventory.contains(itemstack)) {
-				inventory.addItem(itemstack); // Adds a stack of diamonds to the player's inventory
-				player.sendMessage("Welcome! You seem to be reeeally rich, so we gave you some more diamonds!");
-			}
-			return true;
-		} else if (cmd.getName().equalsIgnoreCase("basic2")) {
+			// Make sure the sender is a player.
 			if (!(sender instanceof Player)) {
-				sender.sendMessage("This command can only be run by a player.");
-			} else {
-				Player player = (Player) sender;
-				PlayerInventory inventory = player.getInventory(); // The player's inventory
-				ItemStack itemstack = new ItemStack(Material.DIAMOND, 64); // A stack of diamonds
-
-				if (inventory.contains(itemstack)) {
-					inventory.addItem(itemstack); // Adds a stack of diamonds to the player's inventory
-					player.sendMessage("Welcome! You seem to be reeeally rich, so we gave you some more diamonds!");
-				}
+				sender.sendMessage("Only players can set other players on fire.");
+				sender.sendMessage("This is an arbitrary requirement for demonstration purposes only.");
+				return true;
 			}
+
+			// Get the player who should be set on fire. Remember that indecies start with 0, not 1.
+			Player target = Bukkit.getServer().getPlayer(args[0]);
+
+			// Make sure the player is online.
+			if (target == null) {
+				sender.sendMessage(args[0] + " is not currently online.");
+				return true;
+			}
+
+			// Sets the player on fire for 1,000 ticks (there are ~20 ticks in second, so 50 seconds total).
+			target.setFireTicks(1000);
 			return true;
 		}
 		return false;
 	}
-
-
 }
