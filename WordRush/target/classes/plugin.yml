@@ -1,0 +1,10 @@
+name: WordRush
+main: io.github.InstaTrapCorp.wordrush
+version: 1.0
+author: InstaTrapCorp
+commands:
+   basic:
+      description: This is a demo command.
+      usage: /basic [player]
+      permission: wordrush.basic
+      permission-message: You don't have wordrush.basic
