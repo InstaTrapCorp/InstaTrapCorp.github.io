@@ -1,6 +1,6 @@
 name: WordRush
 main: io.github.InstaTrapCorp.wordrush.WordRush
-version: 1.0
+version: 1.1
 author: InstaTrapCorp
 commands:
    lightup:
