@@ -1,5 +1,5 @@
 name: WordRush
-main: io.github.InstaTrapCorp.wordrush
+main: io.github.InstaTrapCorp.wordrush.wordrush.java
 version: 1.0
 author: InstaTrapCorp
 commands:
