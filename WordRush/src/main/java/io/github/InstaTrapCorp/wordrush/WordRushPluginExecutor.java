@@ -15,7 +15,7 @@ public class WordRushPluginExecutor implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		// Uses equalsIgnoreCase() over equals() to accept "ignite" and "IgNiTe."
-		if (cmd.getName().equalsIgnoreCase("ignite")) {
+		if (cmd.getName().equalsIgnoreCase("lightup")) {
 			// Make sure that the player specified exactly one argument (the name of the player to ignite).
 			if (args.length != 1) {
 				// When onCommand() returns false, the help message associated with that command is displayed.
