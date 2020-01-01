@@ -9,11 +9,11 @@ import org.bukkit.entity.Player;
 public class WordRushPluginExecutor implements CommandExecutor {
 	private final WordRush plugin;
 
-	public WordRushPluginExecutor(WordRush plugin) {
+	public WordRushPluginExecutor(final WordRush plugin) {
 		this.plugin = plugin; // Store the plugin in situations where you need it.
 	}
 
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		// Uses equalsIgnoreCase() over equals() to accept "ignite" and "IgNiTe."
 		if (cmd.getName().equalsIgnoreCase("lightup")) {
 			// Make sure that the player specified exactly one argument (the name of the player to ignite).
@@ -30,7 +30,7 @@ public class WordRushPluginExecutor implements CommandExecutor {
 			}
 
 			// Get the player who should be set on fire. Remember that indecies start with 0, not 1.
-			Player target = Bukkit.getServer().getPlayer(args[0]);
+			final Player target = Bukkit.getServer().getPlayer(args[1]);
 
 			// Make sure the player is online.
 			if (target == null) {
