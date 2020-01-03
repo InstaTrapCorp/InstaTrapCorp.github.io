@@ -5,29 +5,26 @@ prefix: WordRush
 version: 0.1
 author: InstaTrapCorp
 commands:
-   basic:
-      description: This is a demo command for basic.
-      usage: &4Wrong syntax. &cCorrect syntax &l"/basic"
-      permission: TestPlugin.basic
-      permission-message: You don't have TestPlugin.basic
-   basic2:
-      description: This is a demo command for basic2.
-      usage: &4Wrong syntax. &cCorrect syntax &l"/basic2"
-      permission: TestPlugin.basic2
-      permission-message: You don't have TestPlugin.basic2
-      
-      
+basic:
+  description: This is a demo command for basic.
+  usage: &4Wrong syntax. &cCorrect syntax &l"/basic"
+  permission: TestPlugin.basic
+  permission-message: You don't have TestPlugin.basic
+basic2:
+  description: This is a demo command for basic2.
+  usage: &4Wrong syntax. &cCorrect syntax &l"/basic2"
+  permission: TestPlugin.basic2
+  permission-message: You don't have TestPlugin.basic2
 permissions:
-	TestPlugin.*:
-		description: Gives access to all TestPlugin commands
-		default: op
-		children:
-			TestPlugin.basic: true
-			TestPlugin.basic2: true
-	TestPlugin.basic:
-		description: Gives access to "/basic"
-		default: true
-	TestPlugin.basic2:
-		description: Gives access to "/basic2"
-		default: false
-	
+TestPlugin.*:
+  description: Gives access to all TestPlugin commands
+  default: op
+  children:
+     TestPlugin.basic: true
+     TestPlugin.basic2: true
+TestPlugin.basic:
+  description: Gives access to "/basic"
+  default: true
+TestPlugin.basic2:
+  description: Gives access to "/basic2"
+  default: false
