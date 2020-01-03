@@ -1,8 +1,6 @@
 name: TestPlugin
 main: io.github.InstaTrapCorp.TestPlugin.TestPlugin
-load: STARTUP
-prefix: WordRush
-version: 0.1
+version: 1.0
 author: InstaTrapCorp
 commands:
 basic:
