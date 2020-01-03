@@ -18,16 +18,16 @@ commands:
       
       
 permissions:
-    TestPlugin.*:
-        description: Gives access to all TestPlugin commands
-        default: op
-        children:
-            TestPlugin.basic: true
-            TestPlugin.basic2: true
-    TestPlugin.basic:
-        description: Gives access to "/basic"
-        default: true
-    TestPlugin.basic2:
-        description: Gives access to "/basic2"
-        default: false
+   TestPlugin.*:
+      description: Gives access to all TestPlugin commands
+      default: op
+      children:
+         TestPlugin.basic: true
+         TestPlugin.basic2: true
+   TestPlugin.basic:
+      description: Gives access to "/basic"
+      default: true
+   TestPlugin.basic2:
+      description: Gives access to "/basic2"
+      default: false
 	
